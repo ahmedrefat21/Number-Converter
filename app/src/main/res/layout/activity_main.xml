@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    tools:context=".MainActivity">
+
+   <TextView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:text="Number Converter"
+       android:textColor="@color/white"
+       android:textStyle="bold"
+       android:textSize="32sp"
+       android:gravity="center_horizontal"
+       android:layout_marginTop="20dp"/>
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="vertical">
+
+
+           <ImageView
+               android:id="@+id/imageView"
+               android:layout_width="200dp"
+               android:layout_height="200dp"
+               android:layout_gravity="center_horizontal"
+               android:layout_marginBottom="10dp"
+               app:srcCompat="@drawable/icon_numbers" />
+
+           <EditText
+             android:id="@+id/etvDecimal"
+             style="@style/roundInputTextField"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="20dp"
+             android:layout_marginTop="36dp"
+             android:layout_marginEnd="20dp"
+             android:hint="Enter Decimal Number"
+             android:inputType="number"
+             android:digits="0123456789"
+             android:textColor="@color/white"
+             android:textColorHint="@color/tab_unselected_color"
+             android:drawableLeft="@drawable/decimal_leftdrawable"/>
+
+         <EditText
+             android:id="@+id/etvBinary"
+             style="@style/roundInputTextField"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="20dp"
+             android:layout_marginTop="36dp"
+             android:layout_marginEnd="20dp"
+             android:hint="Enter Binary Number"
+             android:inputType="number"
+             android:digits="0123456789"
+             android:textColor="@color/white"
+             android:textColorHint="@color/tab_unselected_color"
+             android:drawableLeft="@drawable/binary_leftdrawable"/>
+
+         <EditText
+             android:id="@+id/etvOctal"
+             style="@style/roundInputTextField"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="20dp"
+             android:layout_marginTop="36dp"
+             android:layout_marginEnd="20dp"
+             android:hint="Enter Octal Number"
+             android:inputType="number"
+             android:digits="0123456789"
+             android:textColor="@color/white"
+             android:textColorHint="@color/tab_unselected_color"
+             android:drawableLeft="@drawable/octal_leftdrawable"/>
+
+         <EditText
+             android:id="@+id/etvHexa"
+             style="@style/roundInputTextField"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginStart="20dp"
+             android:layout_marginTop="36dp"
+             android:layout_marginEnd="20dp"
+             android:hint="Enter HexaDecimal Number"
+             android:inputType="textPersonName|textCapSentences"
+             android:textColor="@color/white"
+             android:textColorHint="@color/tab_unselected_color"
+             android:drawableLeft="@drawable/hexa_leftdrawable"/>
+
+
+
+         <androidx.appcompat.widget.AppCompatButton
+             android:id="@+id/btnClear"
+             style="@style/AppButton"
+             android:layout_width="match_parent"
+             android:layout_height="50dp"
+             android:layout_margin="24dp"
+             android:foreground="?selectableItemBackground"
+             android:textAppearance="?android:textAppearanceLarge"
+             android:text="Clear" />
+
+</LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
