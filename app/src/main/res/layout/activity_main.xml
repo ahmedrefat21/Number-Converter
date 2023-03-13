@@ -64,7 +64,7 @@
              android:layout_marginEnd="20dp"
              android:hint="Enter Binary Number"
              android:inputType="number"
-             android:digits="0123456789"
+             android:digits="01"
              android:textColor="@color/white"
              android:textColorHint="@color/tab_unselected_color"
              android:drawableLeft="@drawable/binary_leftdrawable"/>
@@ -79,7 +79,7 @@
              android:layout_marginEnd="20dp"
              android:hint="Enter Octal Number"
              android:inputType="number"
-             android:digits="0123456789"
+             android:digits="01234567"
              android:textColor="@color/white"
              android:textColorHint="@color/tab_unselected_color"
              android:drawableLeft="@drawable/octal_leftdrawable"/>
@@ -92,6 +92,7 @@
              android:layout_marginStart="20dp"
              android:layout_marginTop="36dp"
              android:layout_marginEnd="20dp"
+             android:digits="0123456789abcdefABCDEF"
              android:hint="Enter HexaDecimal Number"
              android:inputType="textPersonName|textCapSentences"
              android:textColor="@color/white"

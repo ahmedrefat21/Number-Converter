@@ -12,41 +12,52 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
+
+
 class MainActivity : AppCompatActivity() {
-    private var editTextDecimal: EditText? = null
-    private var editTextBinary: EditText? = null
-    private var editTextOctal: EditText? = null
-    private var editTextHexa: EditText? = null
-    private var buttonClear: Button? = null
-    private var value: String? = null
-    private var onFocusChangeListener: OnFocusChangeListener? = null
-    private var focusedViewId = 0
-    private var textWatcher: TextWatcher? = null
+    lateinit var editTextDecimal: EditText
+    lateinit var editTextBinary: EditText
+    lateinit var editTextOctal: EditText
+    lateinit var editTextHexa: EditText
+    lateinit var buttonClear: Button
+    lateinit var value: String
+    lateinit var onFocusChangeListener: OnFocusChangeListener
+    var focusedViewId :Int=0
+    lateinit var textWatcher: TextWatcher
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar!!.hide()
         setContentView(R.layout.activity_main)
+        init()
+        callBack()
+    }
+
+
+
+    private fun init(){
         editTextDecimal = findViewById(R.id.etvDecimal)
         editTextBinary = findViewById(R.id.etvBinary)
         editTextHexa = findViewById(R.id.etvHexa)
         editTextOctal = findViewById(R.id.etvOctal)
         buttonClear = findViewById(R.id.btnClear)
-        //buttonClear.setOnClickListener(View.OnClickListener { clearFields() })
+    }
+
+    private fun callBack(){
+        buttonClear.setOnClickListener { clearFields() }
+
         textWatcher = object : TextWatcher {
-            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {}
-            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                value = (findViewById<View>(focusedViewId) as EditText).text.toString()
-                    .trim { it <= ' ' }
+            override fun beforeTextChanged(charSequence: CharSequence?, i: Int, i1: Int, i2: Int) {}
+            override fun onTextChanged(charSequence: CharSequence?, i: Int, i1: Int, i2: Int) {
+                value = charSequence.toString().trim()
                 if (value!!.length > 0) {
                     convertNumber()
                 }
             }
-
             override fun afterTextChanged(editable: Editable) {}
         }
+
         onFocusChangeListener = OnFocusChangeListener { v, hasFocus ->
             if (hasFocus) {
-                //Toast.makeText(getApplicationContext(), "FoCUS IN" , Toast.LENGTH_SHORT).show();
                 focusedViewId = v.id
                 (findViewById<View>(focusedViewId) as EditText).addTextChangedListener(textWatcher)
                 val gradientDrawable = GradientDrawable(
@@ -79,14 +90,13 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
     }
 
     private fun clearFields() {
-        editTextDecimal!!.setText("")
-        editTextBinary!!.setText("")
-        editTextHexa!!.setText("")
-        editTextOctal!!.setText("")
+        editTextDecimal.text.clear()
+        editTextBinary.text.clear()
+        editTextHexa.text.clear()
+        editTextOctal.text.clear()
     }
 
     private fun convertNumber() {
